@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Interaktive Wegkarte und Gantt-Zeitstrahl von Richard Conrardy.">
+    <title>Wegkarte · Richard Conrardy</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#gantt">Zum Zeitstrahl</a>
+    <header class="hero">
+      <p class="eyebrow">Richard François Conrardy</p>
+      <h1>Wegkarte</h1>
+    </header>
+    <main>
+      <section id="gantt" class="gantt-section" aria-labelledby="gantt-title">
+        <div class="gantt-scroll" tabindex="0" aria-label="Horizontal scrollbarerer Zeitstrahl"><div id="ganttChart" class="gantt-chart"></div></div>
+      </section>
+      <section class="explore-grid" aria-label="Karte und Detailansicht">
+        <article class="map-card">
+          <div id="swissMap" class="swiss-map" aria-live="polite">
+            <svg viewBox="90 0 780 500" role="img" aria-labelledby="mapTitle mapDescription">
+              <title id="mapTitle">Schweizkarte mit Kantonsgrenzen und Lebensstationen</title>
+              <desc id="mapDescription">Interaktive Silhouette der Schweiz. Markierte Orte entsprechen den Stationen im Zeitstrahl.</desc>
+              <text id="mapFallback" x="480" y="250" text-anchor="middle">Schweizkarte wird geladen …</text>
+            </svg>
+          </div>
+          <p id="mapCaption" class="map-caption">Wähle eine Station mit Schweizer Ortsbezug.</p>
+          <p id="mapCredit" class="map-credit">Quelle: Bundesamt für Landestopografie swisstopo · TopoJSON-Aufbereitung: swiss-maps (BSD)</p>
+        </article>
+        <article class="detail-card" aria-live="polite">
+          <p class="eyebrow" id="detailType">Auswahl</p>
+          <div class="detail-meta"><div><span id="detailDateLabel">Zeitraum</span><p id="detailDate" class="detail-date">2011–2026</p></div><div><span>Ort / Bereich</span><p id="detailPlace" class="detail-place">Klicke auf einen Balken oder Punkt.</p></div></div>
+          <h2 id="detailTitle">Der Zeitstrahl erzählt den Weg.</h2>
+          <p id="detailText">Die Detailansicht macht aus einer Station eine kleine Etappe: Ort, Zeitraum und Tätigkeit stehen im Zusammenhang.</p>
+        </article>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+    <script src="luxembourg-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
